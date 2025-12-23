@@ -1,47 +1,56 @@
 import { useState } from "react";
-import Card from "../components/Card";  
+import Card from "../components/Card";
+import HebronImg from ".src/assets/images/الخليل.jpg";
+import JerusalemImg from "src/assets/images/القدس.jpg";
+import GazaImg from ".src/assets/images/غزة.jpg";
+import RamImg from ".src/assets/images/رام الله.jpg";
+import BethlehemImg from ".src/assets/images/بيت لحم.jpg";
+import NablusImg from ".src/assets/images/نابلس.jpg";
+import JeninImg from ".src/assets/images/جنين.jpg";
+import TulkarmImg from ".src/assets/images/طولكرم.jpg";
+  
 function Cities() {
   const [searchTerm, setSearchTerm] = useState("");
 
    const citiesData = [
     { name:"القدس",
-      Image:"image/image2.jpg",
+      Image: JerusalemImg,
       shortInfo:"هي واحدة من أقدم مدن العالم، ويعود تاريخها لآلاف السنين",
       fullInfo:"القدس هي واحدة من أقدم مدن العالم، ويعود تاريخها لآلاف السنين. تُعد من أهم المدن في العالم الإسلامي واليهودي والنصراني، وتُعتبر مركزاً للتراث والثقافة في المنطقة.",
 
     },
     { name:"غزة",
-       Image:"image/image.jpg",
+       Image: GazaImg,
        shortInfo:"مدينة ساحلية على البحر المتوسط، معروفة بتاريخها القديم وصمود أهلها",
        fullInfo: "مدينة غزة هي مدينة ساحلية على البحر المتوسط، معروفة بتاريخها القديم وصمود أهلها في وجه التحديات. تشتهر بأسواقها التقليدية ومينائها الحيوي، وتعتبر مركزاً ثقافياً واقتصادياً هاماً في قطاع غزة.",
     },
     { name:"رام الله",
-      Image:"image/R.jpg",
+      Image: RamImg,
       shortInfo:"مدينة حديثة نسبيًا، تُعد مركزًا إداريًا وثقافيًا.",
       fullInfo:"رام الله هي مدينة حديثة نسبيًا، تُعد مركزًا إداريًا وثقافيًا. تشتهر بتنوعها الثقافي والتراثي، وتُعتبر من أهم المدن في فلسطين.",
     },
     { name:"بيت لحم",
-      Image:"image/image3.jpg",
+      Image: BethlehemImg,
       shortInfo:"مشهور بمكانته الدينية كمسقط رأس يسوع المسيح.",
       fullInfo:"بيت لحم هي مدينة في فلسطين، مشهورة بمكانتها الدينية كمسقط رأس يسوع المسيح. تشتهر بتراثها القديس وثقافتها الغنية، وتُعد من أهم المدن في فلسطين.",
     },
     { name:"نابلس",
-      Image:"image/image4.jpg",
+      Image: NablusImg,
       shortInfo:"معروفة بتاريخها العريق وصناعة الصابون التقليدي.",
       fullInfo:"نابلس هي مدينة في فلسطين، معروفة بتاريخها العريق وصناعة الصابون التقليدي. تشتهر بتراثها الثقافي والتراثي، وتُعتبر من أهم المدن في فلسطين.",
     },
     { name:"الخليل",
-      Image:"image/image5.jpg",
+      Image: HebronImg,
       shortInfo:"تشتهر بأسواقها القديمة ومكانتها الدينية.",
       fullInfo:"الخليل هي مدينة في فلسطين، تشتهر بأسواقها القديمة ومكانتها الدينية. تُعتبر من أهم المدن في فلسطين.",
     },
     { name:"جنين",
-      Image:"image/image6.jpg",
+      Image: JeninImg,
       shortInfo:"معروفة بمناظرها الطبيعية الخلابة وتاريخها الزراعي",
       fullInfo:"جنين هي مدينة في فلسطين، معروفة بمناظرها الطبيعية الخلابة وتاريخها الزراعي. تشتهر بتراثها الثقافي والتراثي، وتُعتبر من أهم المدن في فلسطين.",
     },
     { name:"طولكرم",
-      Image:"image/image7.jpg",
+      Image: TulkarmImg,
       shortInfo:"تشتهر بحدائقها الجميلة وموقعها الاستراتيجي.",
       fullInfo:"طولكرم هي مدينة في فلسطين، تشتهر بحدائقها الجميلة وموقعها الاستراتيجي. تشتهر بتراثها الثقافي والتراثي، وتُعتبر من أهم المدن في فلسطين.",
     } ];
