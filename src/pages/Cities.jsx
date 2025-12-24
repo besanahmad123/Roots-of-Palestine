@@ -1,13 +1,13 @@
 import { useState } from "react";
 import Card from "../components/Card";
-import HebronImg from ".src/assets/images/الخليل.jpg";
-import JerusalemImg from "src/assets/images/القدس.jpg";
-import GazaImg from ".src/assets/images/غزة.jpg";
-import RamImg from ".src/assets/images/رام الله.jpg";
-import BethlehemImg from ".src/assets/images/بيت لحم.jpg";
-import NablusImg from ".src/assets/images/نابلس.jpg";
-import JeninImg from ".src/assets/images/جنين.jpg";
-import TulkarmImg from ".src/assets/images/طولكرم.jpg";
+import HebronImg from "../assets/images/الخليل.jpg";
+import JerusalemImg from "../assets/images/القدس.jpg";
+import GazaImg from "../assets/images/غزة.jpg";
+import RamImg from "../assets/images/رام الله.jpg";
+import BethlehemImg from "../assets/images/بيت لحم.jpg";
+import NablusImg from "../assets/images/نابلس.jpg";
+import JeninImg from "../assets/images/جنين.jpg";
+import TulkarmImg from "../assets/images/طولكرم.jpg";
   
 function Cities() {
   const [searchTerm, setSearchTerm] = useState("");

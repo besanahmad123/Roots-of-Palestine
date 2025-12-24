@@ -1,19 +1,19 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
+import History from "./pages/History";
+import Cities from "./pages/Cities";
+
+
+
 
 // صفحات مؤقتة (جاهزين نشتغل عليهم)
-function Cities() {
-  return <div className="p-10 text-center">صفحة المدن</div>;
-}
+
 
 function Villages() {
   return <div className="p-10 text-center">صفحة القرى</div>;
 }
 
-function History() {
-  return <div className="p-10 text-center">صفحة التاريخ</div>;
-}
 
 function Heritage() {
   return <div className="p-10 text-center">صفحة التراث</div>;
