@@ -1,5 +1,14 @@
 import React from "react";
-import Footer from "../components/Footer.jsx"; // استدعاء الفوتر
+import Footer from "../components/Footer.jsx"; 
+
+import Balfour from "../assets/images/balfour.jpg";
+import Partition from "../assets/images/partition.jpg";
+import Nakba from "../assets/images/nakba.jpg";
+import Naksa from "../assets/images/naksa.jpg";
+import Intifada1 from "../assets/images/intifada1.jpg";
+import Intifada2 from "../assets/images/intifada2.jpg";
+
+
 
 function History() {
   const events = [
@@ -7,43 +16,42 @@ function History() {
       year: "1917",
       title: "وعد بلفور",
       description: "إصدار الحكومة البريطانية وعدًا بإقامة وطن قومي لليهود في فلسطين.",
-      image: "src/assets/images/balfour.jpg",
+      image: Balfour,
     },
     {
       year: "1947",
       title: "قرار التقسيم",
-      description: "قرار الجمعية العامة للأمم المتحدة بتقسيم فلسطين إلى دولتين.",
-      image: "src/assets/images/partition.jpg",
+      description: "قرار الجمعية العامة للأمم المتحدة بتقسيم فلسطين إلى دولتين يهودية وعربية.",
+      image: Partition,
     },
     {
       year: "1948",
       title: "النكبة",
       description: "تهجير مئات الآلاف من الفلسطينيين وإعلان قيام دولة إسرائيل.",
-      image: "src/assets/images/nakba.jpg",
+      image: Nakba,
     },
     {
       year: "1967",
       title: "النكسة",
       description: "احتلال الضفة الغربية وقطاع غزة والقدس الشرقية.",
-      image: "src/assets/images/naksa.jpg",
+      image: Naksa,
     },
     {
       year: "1987",
       title: "الانتفاضة الأولى",
-      description: "انتفاضة شعبية فلسطينية ضد الاحتلال.",
-      image: "src/assets/images/intifada1.jpg",
+      description: "  انتفاضة شعبية فلسطينية ضد الاحتلال  تعرف ايضا بانتفاضة الحجارة",
+      image: Intifada1,
     },
     {
       year: "2000",
       title: "الانتفاضة الثانية",
-      description: "انتفاضة شعبية ومسلحة عُرفت بانتفاضة الأقصى.",
-      image: "src/assets/images/intifada2.jpg",
+      description: "انتفاضة شعبية ومسلحة عُرفت بانتفاضة الأقصى تعرف ايضا بانتفاضة الاقصى",
+      image: Intifada2,
     },
   ];
 
   return (
     <div className="min-h-screen bg-gray-50 py-12 px-6">
-
       {/* العنوان */}
       <div className="text-center mb-12">
         <h1 className="text-3xl font-bold text-[#2c3e50] mb-3">
@@ -55,20 +63,15 @@ function History() {
       </div>
 
       {/* البطاقات */}
+
       <div className="flex flex-wrap justify-center gap-8 mb-12">
         {events.map((event, index) => (
           <div
             key={index}
-            className="
-              bg-white
-              w-56
-              rounded-xl
-              shadow
-              border
-              border-gray-200
-            "
+            className="bg-white w-56 rounded-xl shadow border border-gray-200"
           >
             {/* الصورة */}
+
             <img
               src={event.image}
               alt={event.title}
@@ -77,20 +80,11 @@ function History() {
 
             {/* التاريخ بشكل مميز */}
             <div className="flex justify-center mt-3">
-              <span
-                className="
-                  bg-green-700
-                  text-white
-                  px-4
-                  py-1
-                  rounded-full
-                  text-sm
-                  font-bold
-                "
-              >
+              <span className="bg-green-700 text-white px-4 py-1 rounded-full text-sm font-bold">
                 {event.year}
               </span>
             </div>
+            
 
             {/* المحتوى */}
             <div className="p-4 text-center">
@@ -105,7 +99,7 @@ function History() {
         ))}
       </div>
 
-      {/* الفوتر */}
+      
       <Footer />
     </div>
   );
