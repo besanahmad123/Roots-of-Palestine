@@ -1,5 +1,32 @@
 import { useState } from "react";
 import Footer from "../components/Footer";
+import HeritageCard from "../components/HeritageCard";
+import HeritageSwitch from "../components/HeritageSwitch";
+
+
+import Thobe1 from "../assets/images/thobe1.jpg";
+import Thobe2 from "../assets/images/thobe2.jpg";
+import Thobe3 from "../assets/images/thobe3.png";
+
+import Pottery1 from "../assets/images/pottery1.jpg";
+import Pottery2 from "../assets/images/pottery2.jpg";
+import Pottery3 from "../assets/images/pottery3.jpg";
+
+import Architecture1 from "../assets/images/architecture1.jpg";
+import Architecture2 from "../assets/images/architecture2.jpg";
+import Architecture3 from "../assets/images/architecture3.gif";
+
+import Dabka1 from "../assets/images/dabka1.jpg";
+import Dabka2 from "../assets/images/dabka2.jpg";
+import Dabka3 from "../assets/images/dabka3.jpg";
+
+import Songs1 from "../assets/images/songs1.jpg";
+import Songs2 from "../assets/images/songs2.jpg";
+
+
+
+
+
 
 function Heritage() {
   const [type, setType] = useState("material");
@@ -8,17 +35,17 @@ function Heritage() {
     {
       name: "الثوب الفلسطيني",
       info: "زي تقليدي مطرز يعكس الهوية الفلسطينية",
-      img: "/images/thobe.jpg",
+      images: [Thobe1, Thobe2, Thobe3],
     },
     {
       name: "الأواني الفخارية",
       info: "أدوات منزلية قديمة مصنوعة من الفخار",
-      img: "/images/pottery.jpg",
+      images: [Pottery1, Pottery2, Pottery3],
     },
     {
       name: "العمارة القديمة",
       info: "بيوت حجرية وأسواق تاريخية تعكس التراث العمراني",
-      img: "/images/architecture.jpg",
+      images: [Architecture1, Architecture2, Architecture3],
     },
   ];
 
@@ -26,17 +53,21 @@ function Heritage() {
     {
       name: "الدبكة",
       info: "رقصة جماعية شعبية تعبر عن الفرح والوحدة",
-      img: "/images/dabka.jpg",
+      images: [Dabka1, Dabka2, Dabka3],
     },
     {
       name: "الأغاني الشعبية",
       info: "أغاني تراثية تُغنى في المناسبات والأفراح",
-      img: "/images/songs.jpg",
+      images: [Songs1, Songs2], 
     },
     {
       name: "الأمثال الشعبية",
       info: "أمثال قديمة تحمل الحكمة وتجارب الأجداد",
-      img: "/images/proverbs.jpg",
+      proverbs: [
+        "اعمل الخير وارمه في البحر",
+        "الصبر مفتاح الفرج",
+        "العين لا تعلو على الحاجب",
+      ],
     },
   ];
 
@@ -50,50 +81,24 @@ function Heritage() {
       </h1>
 
       {/* أزرار التبديل */}
-      <div className="flex justify-center gap-4 mb-10">
-        <button
-          onClick={() => setType("material")}
-          className={`px-6 py-2 rounded-lg font-semibold transition ${
-            type === "material"
-              ? "bg-[#2c3e50] text-white"
-              : "bg-gray-200 hover:bg-gray-300"
-          }`}
-        >
-          تراث مادي
-        </button>
-        <button
-          onClick={() => setType("immaterial")}
-          className={`px-6 py-2 rounded-lg font-semibold transition ${
-            type === "immaterial"
-              ? "bg-[#2c3e50] text-white"
-              : "bg-gray-200 hover:bg-gray-300"
-          }`}
-        >
-          تراث غير مادي
-        </button>
-      </div>
+      
+      <HeritageSwitch type={type} setType={setType} />
 
       {/* بطاقات التراث */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
         {heritageItems.map((item, index) => (
-          <div
+          <HeritageCard
             key={index}
-            className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition"
-          >
-            <img
-              src={item.img}
-              alt={item.name}
-              className="w-full h-48 object-cover rounded mb-4"
-            />
-            <h2 className="text-xl font-bold text-[#2c3e50] mb-2">
-              {item.name}
-            </h2>
-            <p className="text-gray-600">{item.info}</p>
-          </div>
+            name={item.name}
+            info={item.info}
+            images={item.images}
+            proverbs={item.proverbs}
+          />
         ))}
       </div>
 
-      {/* الفوتر */}
+      
       <Footer />
     </div>
   );

@@ -9,9 +9,9 @@ import NablusImg from "../assets/images/نابلس.jpg";
 import JeninImg from "../assets/images/جنين.jpg";
 import TulkarmImg from "../assets/images/طولكرم.jpg";
 
-import QalqilyaImg from "../assets/images/قلقيلية.jpg";
-import JerichoImg from "../assets/images/أريحا.jpg";
-import NazarethImg from "../assets/images/الناصرة.jpg";
+import QalqilyaImg from "../assets/images/قلقيليه.jpg";
+import JerichoImg from "../assets/images/اريحا.jpg";
+import NazarethImg from "../assets/images/الناصره.jpg";
 import HaifaImg from "../assets/images/حيفا.jpg";
 import AcreImg from "../assets/images/عكا.jpg";
 import JaffaImg from "../assets/images/يافا.jpg";
