@@ -8,13 +8,19 @@ import BethlehemImg from "../assets/images/بيت لحم.jpg";
 import NablusImg from "../assets/images/نابلس.jpg";
 import JeninImg from "../assets/images/جنين.jpg";
 import TulkarmImg from "../assets/images/طولكرم.jpg";
+
+import QalqilyaImg from "../assets/images/قلقيلية.jpg";
+import JerichoImg from "../assets/images/أريحا.jpg";
+import NazarethImg from "../assets/images/الناصرة.jpg";
+import HaifaImg from "../assets/images/حيفا.jpg";
+import AcreImg from "../assets/images/عكا.jpg";
+import JaffaImg from "../assets/images/يافا.jpg";
   
 function Cities() {
   const [searchTerm, setSearchTerm] = useState("");
-  const [selectedCity, setSelectedCity] = useState("");
 
    const citiesData = [
-    { name:"Jerusalem",
+    { name:"القدس",
       Image: JerusalemImg,
       shortInfo:"هي واحدة من أقدم مدن العالم، ويعود تاريخها لآلاف السنين",
       fullInfo:"القدس هي واحدة من أقدم مدن العالم، ويعود تاريخها لآلاف السنين. تُعد من أهم المدن في العالم الإسلامي واليهودي والنصراني، وتُعتبر مركزاً للتراث والثقافة في المنطقة.",
@@ -40,12 +46,12 @@ function Cities() {
       shortInfo:"معروفة بتاريخها العريق وصناعة الصابون التقليدي.",
       fullInfo:"نابلس هي مدينة في فلسطين، معروفة بتاريخها العريق وصناعة الصابون التقليدي. تشتهر بتراثها الثقافي والتراثي، وتُعتبر من أهم المدن في فلسطين.",
     },
-    { name:"Hebron",
+    { name:"الخليل",
       Image: HebronImg,
       shortInfo:"تشتهر بأسواقها القديمة ومكانتها الدينية.",
       fullInfo:"الخليل هي مدينة في فلسطين، تشتهر بأسواقها القديمة ومكانتها الدينية. تُعتبر من أهم المدن في فلسطين.",
     },
-    { name:"Jenin",
+    { name:"جنين",
       Image: JeninImg,
       shortInfo:"معروفة بمناظرها الطبيعية الخلابة وتاريخها الزراعي",
       fullInfo:"جنين هي مدينة في فلسطين، معروفة بمناظرها الطبيعية الخلابة وتاريخها الزراعي. تشتهر بتراثها الثقافي والتراثي، وتُعتبر من أهم المدن في فلسطين.",
@@ -55,9 +61,10 @@ function Cities() {
       shortInfo:"تشتهر بحدائقها الجميلة وموقعها الاستراتيجي.",
       fullInfo:"طولكرم هي مدينة في فلسطين، تشتهر بحدائقها الجميلة وموقعها الاستراتيجي. تشتهر بتراثها الثقافي والتراثي، وتُعتبر من أهم المدن في فلسطين.",
     } ];
-    const filteredCities = citiesData.filter((city)=>
-      city.name.toLowerCase().includes(searchTerm.toLowerCase())
+    const filteredCities = citiesData.filter(city =>
+      city.name.includes(searchTerm)
     );
+    const visibleCities = filteredCities.slice(0, visibleCount);
   return (
     <div className="p-5 bg-gray-100 min-h-screen">
       <h2 className="text-center text-2xl font-bold mb-2 border-b-2 border-gray-400 ">Cities Page</h2>
@@ -92,6 +99,16 @@ function Cities() {
           </div>
         ))}
       </div>
+      {visibleCount < filteredCities.length && (
+        <div className="flex justify-center mt-5">
+          <button
+            onClick={() => setVisibleCount(visibleCount + 6)}
+            className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition"
+          >
+            عرض المزيد
+          </button>
+        </div>
+      )}
     </div>
   );
 }
