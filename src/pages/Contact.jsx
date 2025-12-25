@@ -1,5 +1,5 @@
 import { useState } from "react";
-import StarRating from ".../components/StarRating";
+import StarRating from "../components/starRating.jsx";
 import Footer from "../components/Footer";
 
 function Contact() {
