@@ -1,4 +1,5 @@
 import React from "react";
+import Footer from "../components/Footer.jsx"; // استدعاء الفوتر
 
 function History() {
   const events = [
@@ -54,7 +55,7 @@ function History() {
       </div>
 
       {/* البطاقات */}
-      <div className="flex flex-wrap justify-center gap-8">
+      <div className="flex flex-wrap justify-center gap-8 mb-12">
         {events.map((event, index) => (
           <div
             key={index}
@@ -74,24 +75,22 @@ function History() {
               className="w-full h-32 object-cover rounded-t-xl"
             />
 
-
             {/* التاريخ بشكل مميز */}
             <div className="flex justify-center mt-3">
-              <span className="
-                bg-green-700
-                text-white
-                px-4
-                py-1
-                rounded-full
-                text-sm
-                font-bold
-              ">
+              <span
+                className="
+                  bg-green-700
+                  text-white
+                  px-4
+                  py-1
+                  rounded-full
+                  text-sm
+                  font-bold
+                "
+              >
                 {event.year}
               </span>
             </div>
-
-
-
 
             {/* المحتوى */}
             <div className="p-4 text-center">
@@ -106,6 +105,8 @@ function History() {
         ))}
       </div>
 
+      {/* الفوتر */}
+      <Footer />
     </div>
   );
 }

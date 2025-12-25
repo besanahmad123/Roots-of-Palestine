@@ -1,5 +1,6 @@
 import flag from "../assets/images/palestine-flag.jpg";
 import map from "../assets/images/palestine_map.jpg";
+import Footer from "../components/Footer.jsx"; 
 
 function Home() {
   return (
@@ -11,7 +12,8 @@ function Home() {
       </h1>
 
       {/* النص */}
-      <p className="
+      <p
+        className="
         max-w-[750px]
         mx-auto
         mb-10
@@ -19,11 +21,12 @@ function Home() {
         p-5
         rounded-[10px]
         leading-[1.8]
-      ">
+      "
+      >
         فلسطين أرض الجذور العميقة والتاريخ العريق، حيث تتجسد الهوية والثقافة في
-        كل مدينة وقرية. يهدف هذا الموقع إلى التعريف بفلسطين من خلال تسليط الضوء
-        على مدنها وقراها وتراثها وأهم محطاتها التاريخية، بهدف حفظ الذاكرة
-        الوطنية وتعزيز الانتماء الثقافي.
+         كل مدينة وقرية. يهدف هذا الموقع إلى التعريف بفلسطين من خلال تسليط الضوء
+               على مدنها وقراها وتراثها وأهم محطاتها التاريخية، بهدف حفظ الذاكرة
+                                                    الوطنية وتعزيز الانتماء الثقافي
       </p>
 
       {/* الصور */}
@@ -68,6 +71,8 @@ function Home() {
         </div>
       </div>
 
+      {/* الفوتر */}
+      <Footer />
     </div>
   );
 }

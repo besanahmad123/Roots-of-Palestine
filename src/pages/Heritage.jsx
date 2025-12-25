@@ -1,39 +1,100 @@
+import { useState } from "react";
+import Footer from "../components/Footer";
+
 function Heritage() {
-  const tangible = [
-    { name: "المواقع التاريخية", info: "أثار ومعالم تاريخية", image: "src/assets/images/tangible1.jpg" },
-    { name: "الأزياء التقليدية", info: "الملابس التراثية الفلسطينية", image: "src/assets/images/tangible2.jpg" }
+  const [type, setType] = useState("material");
+
+  const materialHeritage = [
+    {
+      name: "الثوب الفلسطيني",
+      info: "زي تقليدي مطرز يعكس الهوية الفلسطينية",
+      img: "/images/thobe.jpg",
+    },
+    {
+      name: "الأواني الفخارية",
+      info: "أدوات منزلية قديمة مصنوعة من الفخار",
+      img: "/images/pottery.jpg",
+    },
+    {
+      name: "العمارة القديمة",
+      info: "بيوت حجرية وأسواق تاريخية تعكس التراث العمراني",
+      img: "/images/architecture.jpg",
+    },
   ];
 
-  const intangible = [
-    { name: "الدبكات", info: "رقصات فلسطينية شعبية", image: "src/assets/images/intangible1.jpg" },
-    { name: "الأكلات", info: "الأطباق التقليدية", image: "src/assets/images/intangible2.jpg" }
+  const immaterialHeritage = [
+    {
+      name: "الدبكة",
+      info: "رقصة جماعية شعبية تعبر عن الفرح والوحدة",
+      img: "/images/dabka.jpg",
+    },
+    {
+      name: "الأغاني الشعبية",
+      info: "أغاني تراثية تُغنى في المناسبات والأفراح",
+      img: "/images/songs.jpg",
+    },
+    {
+      name: "الأمثال الشعبية",
+      info: "أمثال قديمة تحمل الحكمة وتجارب الأجداد",
+      img: "/images/proverbs.jpg",
+    },
   ];
 
-  const [filter, setFilter] = React.useState("tangible");
-
-  const displayed = filter === "tangible" ? tangible : intangible;
+  const heritageItems =
+    type === "material" ? materialHeritage : immaterialHeritage;
 
   return (
-    <div className="p-10 max-w-7xl mx-auto">
-      <h1 className="text-4xl font-bold text-center text-[#2c3e50] mb-8">التراث الفلسطيني</h1>
+    <div className="min-h-screen bg-gradient-to-b from-gray-100 to-gray-200 py-16 px-6 text-center">
+      <h1 className="text-3xl font-bold text-[#2c3e50] mb-6">
+        التراث الفلسطيني
+      </h1>
 
-      {/* أزرار الاختيار */}
+      {/* أزرار التبديل */}
       <div className="flex justify-center gap-4 mb-10">
-        <button onClick={() => setFilter("tangible")} className={`px-4 py-2 rounded shadow ${filter === "tangible" ? "bg-blue-700 text-white" : "bg-white text-gray-700"}`}>تراث مادي</button>
-        <button onClick={() => setFilter("intangible")} className={`px-4 py-2 rounded shadow ${filter === "intangible" ? "bg-blue-700 text-white" : "bg-white text-gray-700"}`}>تراث غير مادي</button>
+        <button
+          onClick={() => setType("material")}
+          className={`px-6 py-2 rounded-lg font-semibold transition ${
+            type === "material"
+              ? "bg-[#2c3e50] text-white"
+              : "bg-gray-200 hover:bg-gray-300"
+          }`}
+        >
+          تراث مادي
+        </button>
+        <button
+          onClick={() => setType("immaterial")}
+          className={`px-6 py-2 rounded-lg font-semibold transition ${
+            type === "immaterial"
+              ? "bg-[#2c3e50] text-white"
+              : "bg-gray-200 hover:bg-gray-300"
+          }`}
+        >
+          تراث غير مادي
+        </button>
       </div>
 
-      <div className="flex flex-wrap justify-center gap-8">
-        {displayed.map((item, index) => (
-          <div key={index} className="w-64 h-80 bg-white shadow-md rounded-lg overflow-hidden hover:shadow-xl transition flex flex-col items-center">
-            <img src={item.image} alt={item.name} className="w-40 h-40 object-cover mt-4 rounded"/>
-            <div className="p-4 text-center flex flex-col justify-between flex-1">
-              <h3 className="text-lg font-bold text-blue-700 mb-2">{item.name}</h3>
-              <p className="text-gray-700 text-sm">{item.info}</p>
-            </div>
+      {/* بطاقات التراث */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        {heritageItems.map((item, index) => (
+          <div
+            key={index}
+            className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition"
+          >
+            <img
+              src={item.img}
+              alt={item.name}
+              className="w-full h-48 object-cover rounded mb-4"
+            />
+            <h2 className="text-xl font-bold text-[#2c3e50] mb-2">
+              {item.name}
+            </h2>
+            <p className="text-gray-600">{item.info}</p>
           </div>
         ))}
       </div>
+
+      {/* الفوتر */}
+      <Footer />
     </div>
   );
 }
