@@ -8,58 +8,105 @@ import BethlehemImg from "../assets/images/بيت لحم.jpg";
 import NablusImg from "../assets/images/نابلس.jpg";
 import JeninImg from "../assets/images/جنين.jpg";
 import TulkarmImg from "../assets/images/طولكرم.jpg";
+
+import QalqilyaImg from "../assets/images/قلقيلية.jpg";
+import JerichoImg from "../assets/images/أريحا.jpg";
+import NazarethImg from "../assets/images/الناصرة.jpg";
+import HaifaImg from "../assets/images/حيفا.jpg";
+import AcreImg from "../assets/images/عكا.jpg";
+import JaffaImg from "../assets/images/يافا.jpg";
   
 function Cities() {
   const [searchTerm, setSearchTerm] = useState("");
+  const [selectedCity, setSelectedCity] = useState("");
+  const [visibleCount, setVisibleCount] = useState(8);
 
    const citiesData = [
-    { name:"القدس",
+     { name:"Hebron",
+      Image: HebronImg,
+      shortInfo:"تشتهر بأسواقها القديمة ومكانتها الدينية.",
+      fullInfo:"الخليل هي مدينة في فلسطين، تشتهر بأسواقها القديمة ومكانتها الدينية. تُعتبر من أهم المدن في فلسطين.",
+    },
+
+    { name:"Jerusalem",
       Image: JerusalemImg,
       shortInfo:"هي واحدة من أقدم مدن العالم، ويعود تاريخها لآلاف السنين",
       fullInfo:"القدس هي واحدة من أقدم مدن العالم، ويعود تاريخها لآلاف السنين. تُعد من أهم المدن في العالم الإسلامي واليهودي والنصراني، وتُعتبر مركزاً للتراث والثقافة في المنطقة.",
 
     },
-    { name:"غزة",
+    { name:"Gaza",
        Image: GazaImg,
        shortInfo:"مدينة ساحلية على البحر المتوسط، معروفة بتاريخها القديم وصمود أهلها",
        fullInfo: "مدينة غزة هي مدينة ساحلية على البحر المتوسط، معروفة بتاريخها القديم وصمود أهلها في وجه التحديات. تشتهر بأسواقها التقليدية ومينائها الحيوي، وتعتبر مركزاً ثقافياً واقتصادياً هاماً في قطاع غزة.",
     },
-    { name:"رام الله",
+    { name:"Ramallah",
       Image: RamImg,
       shortInfo:"مدينة حديثة نسبيًا، تُعد مركزًا إداريًا وثقافيًا.",
       fullInfo:"رام الله هي مدينة حديثة نسبيًا، تُعد مركزًا إداريًا وثقافيًا. تشتهر بتنوعها الثقافي والتراثي، وتُعتبر من أهم المدن في فلسطين.",
     },
-    { name:"بيت لحم",
+    { name:"Bethlehem",
       Image: BethlehemImg,
       shortInfo:"مشهور بمكانته الدينية كمسقط رأس يسوع المسيح.",
       fullInfo:"بيت لحم هي مدينة في فلسطين، مشهورة بمكانتها الدينية كمسقط رأس يسوع المسيح. تشتهر بتراثها القديس وثقافتها الغنية، وتُعد من أهم المدن في فلسطين.",
     },
-    { name:"نابلس",
+    { name:"Nablus",
       Image: NablusImg,
       shortInfo:"معروفة بتاريخها العريق وصناعة الصابون التقليدي.",
       fullInfo:"نابلس هي مدينة في فلسطين، معروفة بتاريخها العريق وصناعة الصابون التقليدي. تشتهر بتراثها الثقافي والتراثي، وتُعتبر من أهم المدن في فلسطين.",
     },
-    { name:"الخليل",
-      Image: HebronImg,
-      shortInfo:"تشتهر بأسواقها القديمة ومكانتها الدينية.",
-      fullInfo:"الخليل هي مدينة في فلسطين، تشتهر بأسواقها القديمة ومكانتها الدينية. تُعتبر من أهم المدن في فلسطين.",
-    },
-    { name:"جنين",
+    
+    { name:"Jenin",
       Image: JeninImg,
       shortInfo:"معروفة بمناظرها الطبيعية الخلابة وتاريخها الزراعي",
       fullInfo:"جنين هي مدينة في فلسطين، معروفة بمناظرها الطبيعية الخلابة وتاريخها الزراعي. تشتهر بتراثها الثقافي والتراثي، وتُعتبر من أهم المدن في فلسطين.",
     },
-    { name:"طولكرم",
+    { name:"Tulkarm",
       Image: TulkarmImg,
       shortInfo:"تشتهر بحدائقها الجميلة وموقعها الاستراتيجي.",
       fullInfo:"طولكرم هي مدينة في فلسطين، تشتهر بحدائقها الجميلة وموقعها الاستراتيجي. تشتهر بتراثها الثقافي والتراثي، وتُعتبر من أهم المدن في فلسطين.",
-    } ];
-    const filteredCities = citiesData.filter(city =>
-      city.name.includes(searchTerm)
+    } ,
+    { name: "Qalqilya",
+      Image: QalqilyaImg, 
+      shortInfo: "مدينة زراعية هادئة",
+      fullInfo: "قلقيلية مدينة فلسطينية صغيرة تشتهر بحدائقها الخضراء ومزارعها، وتتمتع بتراث ثقافي غني." ,
+
+    },
+    { name: "Jericho",
+      Image: JerichoImg,
+      shortInfo: "أقدم مدينة مأهولة في العالم", 
+      fullInfo: "أريحا واحدة من أقدم المدن في العالم، تشتهر بموقعها التاريخي وأشجار النخيل.", 
+    },
+    { name: "Nazareth", 
+      Image: NazarethImg, 
+      shortInfo: "مدينة دينية مشهورة", 
+      fullInfo: "الناصرة مشهورة بمكانتها الدينية كمكان نشأة يسوع المسيح، وتتمتع بتراث ثقافي غني." ,
+    },
+    { name: "Haifa", 
+      Image: HaifaImg, 
+      shortInfo: "مدينة ساحلية حديثة", 
+      fullInfo: "حيفا مدينة ساحلية في شمال فلسطين/إسرائيل، تشتهر بمينائها وبحدائق البهائيين." ,
+    },
+{
+   name: "Acre", 
+  Image: AcreImg, 
+  shortInfo: "مدينة تاريخية ساحلية", 
+  fullInfo: "عكا مدينة قديمة على البحر المتوسط، مشهورة بأسوارها التاريخية وأسواقها التقليدية.",
+},
+{
+   name: "Jaffa", 
+  Image: JaffaImg, 
+  shortInfo: "مدينة تاريخية ساحلية", 
+  fullInfo: "يافا مدينة قديمة، مشهورة بمينائها وأسواقها التاريخية، وتعد جزءًا من تل أبيب الآن." ,
+}
+
+  ];
+    const filteredCities = citiesData.filter((city)=>
+      city.name.toLowerCase().includes(searchTerm.toLowerCase())
     );
+    const visibleCities = filteredCities.slice(0, visibleCount);
   return (
     <div className="p-5 bg-gray-100 min-h-screen">
-      <h2 className="text-center text-2xl font-bold mb-2 border-b-2 border-gray-400 pd-2">Cities Page</h2>
+      <h2 className="text-center text-2xl font-bold mb-2 border-b-2 border-gray-400 ">Cities Page</h2>
       <div className="flex justify-center mb-5">
         <input
           type="text"
@@ -71,11 +118,17 @@ function Cities() {
       </div>
       <div className="flex flex-wrap gap-5 justify-center">
         {filteredCities.map((city, index) => (
-          <div key={index} 
-          className="bg-white p-5 rounded-xl shadow-md hover:shadow-xl hover:bg-gray-200 w-60 cursor-pointer ">
-            <h3 className="text-lg font-semibold">{city.name}</h3>
-            onClick={() => setSelectedCity(city.name===selectedCity ? "" : city.name)}
-            <img src={city.Image} alt={city.name} className="w-full h-40 object-cover rounded-lg mb-3" />
+          <div
+           key={index} 
+            onClick={() => 
+              setSelectedCity(city.name===selectedCity ? "" : city.name)
+              }
+              className="bg-white p-5 rounded-xl shadow-md hover:shadow-xl hover:bg-gray-200 w-1/4 cursor-pointer "
+              >
+            <img src={city.Image}
+             alt={city.name} 
+             className="w-full h-40 object-cover rounded-lg mb-3" 
+             />
             <h3 className="text-lg font-semibold mb-2">{city.name }</h3>
             <p className="text-gray-600">{city.shortInfo}</p>
             {selectedCity === city.name && (
@@ -85,6 +138,16 @@ function Cities() {
           </div>
         ))}
       </div>
+      {visibleCount < filteredCities.length && (
+        <div className="flex justify-center mt-5">
+          <button
+            onClick={() => setVisibleCount(visibleCount + 6)}
+            className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition"
+          >
+            عرض المزيد
+          </button>
+        </div>
+      )}
     </div>
   );
 }
