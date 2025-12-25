@@ -1,4 +1,3 @@
-// src/pages/History.jsx
 import React from "react";
 
 function History() {
@@ -75,6 +74,7 @@ function History() {
               className="w-full h-32 object-cover rounded-t-xl"
             />
 
+
             {/* التاريخ بشكل مميز */}
             <div className="flex justify-center mt-3">
               <span className="
@@ -89,6 +89,9 @@ function History() {
                 {event.year}
               </span>
             </div>
+
+
+
 
             {/* المحتوى */}
             <div className="p-4 text-center">

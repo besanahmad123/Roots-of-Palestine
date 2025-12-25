@@ -1,7 +1,15 @@
 function Footer() {
   return (
-    <footer className="bg-gray-100 shadow-inner mt-10 py-4 text-center text-gray-600">
-      <p>© 2025 Roots of Palestine. جميع الحقوق محفوظة.</p>
+    <footer className="bg-[#2c3e50] text-white py-6 mt-20 text-center">
+      <p className="text-sm">
+        © {new Date().getFullYear()} Roots of Palestine
+      </p>
+
+<p className="text-xs mt-2 text-gray-300">
+  Final Project – Web 1 | Developed by: Besan Ahmad, Sally Maher, and MaisHaj Mohammad
+</p>
+
+
     </footer>
   );
 }
