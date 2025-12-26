@@ -5,11 +5,10 @@ import History from "./pages/History";
 import Cities from "./pages/Cities";
 import Contact from "./pages/Contact";
 import Heritage from "./pages/Heritage";
+import Villages  from "./pages/Villages";
+ 
 
-// صفحات مؤقتة (جاهزين نشتغل عليهم)
-function Villages() {
-  return <div className="p-10 text-center">صفحة القرى</div>;
-}
+
 
 
 function App() {

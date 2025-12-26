@@ -1,5 +1,6 @@
-import { useState } from "react";
-import Card from "../components/Card";
+// src/pages/Cities.jsx
+import React, { useState } from "react";
+
 import HebronImg from "../assets/images/الخليل.jpg";
 import JerusalemImg from "../assets/images/القدس.jpg";
 import GazaImg from "../assets/images/غزة.jpg";
@@ -8,102 +9,108 @@ import BethlehemImg from "../assets/images/بيت لحم.jpg";
 import NablusImg from "../assets/images/نابلس.jpg";
 import JeninImg from "../assets/images/جنين.jpg";
 import TulkarmImg from "../assets/images/طولكرم.jpg";
-
 import QalqilyaImg from "../assets/images/قلقيليه.jpg";
 import JerichoImg from "../assets/images/اريحا.jpg";
 import NazarethImg from "../assets/images/الناصره.jpg";
 import HaifaImg from "../assets/images/حيفا.jpg";
 import AcreImg from "../assets/images/عكا.jpg";
 import JaffaImg from "../assets/images/يافا.jpg";
-  
+
 function Cities() {
+  const allCities = [
+    { name: "القدس", info: "عاصمة فلسطين الأبدية، قلب التراث الديني والتاريخي.", image: JerusalemImg },
+    { name: "غزة", info: "مدينة الصمود والتاريخ العريق، أقدم مدن العالم.", image: GazaImg },
+    { name: "نابلس", info: "مدينة الجبال، مشهورة بالسوق القديم والكنافة.", image: NablusImg },
+    { name: "الخليل", info: "مدينة الأنبياء، تضم الحرم الإبراهيمي.", image: HebronImg },
+    { name: "رام الله", info: "المركز الثقافي والإداري، مدينة نابضة بالحياة.", image: RamImg },
+    { name: "بيت لحم", info: "مهد السيد المسيح، تضم كنيسة المهد.", image: BethlehemImg },
+    { name: "جنين", info: "مدينة الشمال المقاومة، مشهورة بالزراعة.", image: JeninImg },
+    { name: "طولكرم", info: "مدينة السهل الساحلي، تراث زراعي غني.", image: TulkarmImg },
+    { name: "قلقيلية", info: "مدينة البرتقال والليمون، تراث زراعي مميز.", image: QalqilyaImg },
+    { name: "أريحا", info: "أقدم مدينة في العالم، مدينة النخيل.", image: JerichoImg },
+    { name: "الناصرة", info: "مدينة الطفولة المسيحية، تراث ديني عريق.", image: NazarethImg },
+    { name: "حيفا", info: "مدينة البحر والجبل، مزيج من الثقافات.", image: HaifaImg },
+    { name: "عكا", info: "مدينة تاريخية ساحلية، جدرانها شاهدة على التاريخ.", image: AcreImg },
+    { name: "يافا", info: "عروس البحر، مدينة البرتقال والفن.", image: JaffaImg },
+  ];
+
   const [searchTerm, setSearchTerm] = useState("");
+  const [visibleCount, setVisibleCount] = useState(12);
 
-   const citiesData = [
-    { name:"القدس",
-      Image: JerusalemImg,
-      shortInfo:"هي واحدة من أقدم مدن العالم، ويعود تاريخها لآلاف السنين",
-      fullInfo:"القدس هي واحدة من أقدم مدن العالم، ويعود تاريخها لآلاف السنين. تُعد من أهم المدن في العالم الإسلامي واليهودي والنصراني، وتُعتبر مركزاً للتراث والثقافة في المنطقة.",
+  const filteredCities = allCities.filter((city) =>
+    city.name.includes(searchTerm) || city.info.includes(searchTerm)
+  );
 
-    },
-    { name:"Gaza",
-       Image: GazaImg,
-       shortInfo:"مدينة ساحلية على البحر المتوسط، معروفة بتاريخها القديم وصمود أهلها",
-       fullInfo: "مدينة غزة هي مدينة ساحلية على البحر المتوسط، معروفة بتاريخها القديم وصمود أهلها في وجه التحديات. تشتهر بأسواقها التقليدية ومينائها الحيوي، وتعتبر مركزاً ثقافياً واقتصادياً هاماً في قطاع غزة.",
-    },
-    { name:"Ramallah",
-      Image: RamImg,
-      shortInfo:"مدينة حديثة نسبيًا، تُعد مركزًا إداريًا وثقافيًا.",
-      fullInfo:"رام الله هي مدينة حديثة نسبيًا، تُعد مركزًا إداريًا وثقافيًا. تشتهر بتنوعها الثقافي والتراثي، وتُعتبر من أهم المدن في فلسطين.",
-    },
-    { name:"Bethlehem",
-      Image: BethlehemImg,
-      shortInfo:"مشهور بمكانته الدينية كمسقط رأس يسوع المسيح.",
-      fullInfo:"بيت لحم هي مدينة في فلسطين، مشهورة بمكانتها الدينية كمسقط رأس يسوع المسيح. تشتهر بتراثها القديس وثقافتها الغنية، وتُعد من أهم المدن في فلسطين.",
-    },
-    { name:"Nablus",
-      Image: NablusImg,
-      shortInfo:"معروفة بتاريخها العريق وصناعة الصابون التقليدي.",
-      fullInfo:"نابلس هي مدينة في فلسطين، معروفة بتاريخها العريق وصناعة الصابون التقليدي. تشتهر بتراثها الثقافي والتراثي، وتُعتبر من أهم المدن في فلسطين.",
-    },
-    { name:"الخليل",
-      Image: HebronImg,
-      shortInfo:"تشتهر بأسواقها القديمة ومكانتها الدينية.",
-      fullInfo:"الخليل هي مدينة في فلسطين، تشتهر بأسواقها القديمة ومكانتها الدينية. تُعتبر من أهم المدن في فلسطين.",
-    },
-    { name:"جنين",
-      Image: JeninImg,
-      shortInfo:"معروفة بمناظرها الطبيعية الخلابة وتاريخها الزراعي",
-      fullInfo:"جنين هي مدينة في فلسطين، معروفة بمناظرها الطبيعية الخلابة وتاريخها الزراعي. تشتهر بتراثها الثقافي والتراثي، وتُعتبر من أهم المدن في فلسطين.",
-    },
-    { name:"Tulkarm",
-      Image: TulkarmImg,
-      shortInfo:"تشتهر بحدائقها الجميلة وموقعها الاستراتيجي.",
-      fullInfo:"طولكرم هي مدينة في فلسطين، تشتهر بحدائقها الجميلة وموقعها الاستراتيجي. تشتهر بتراثها الثقافي والتراثي، وتُعتبر من أهم المدن في فلسطين.",
-    } ];
-    const filteredCities = citiesData.filter(city =>
-      city.name.includes(searchTerm)
-    );
-    const visibleCities = filteredCities.slice(0, visibleCount);
+  const displayedCities = filteredCities.slice(0, visibleCount);
+
+  const hasMore = visibleCount < filteredCities.length;
+
+  const loadMore = () => {
+    setVisibleCount((prev) => prev + 12);
+  };
+
   return (
-    <div className="p-5 bg-gray-100 min-h-screen">
-      <h2 className="text-center text-2xl font-bold mb-2 border-b-2 border-gray-400 ">Cities Page</h2>
-      <div className="flex justify-center mb-5">
-        <input
-          type="text"
-          placeholder="ابحث عن مدينة..."
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-          className="w-full max-w-md p-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
-        />
-      </div>
-      <div className="flex flex-wrap gap-5 justify-center">
-        {filteredCities.map((city, index) => (
-          <div
-           key={index} 
-            onClick={() => 
-              setSelectedCity(city.name===selectedCity ? "" : city.name)
-              }
-              className="bg-white p-5 rounded-xl shadow-md hover:shadow-xl hover:bg-gray-200 w-1/4 cursor-pointer "
-              >
-            <img src={city.Image}
-             alt={city.name} 
-             className="w-full h-40 object-cover rounded-lg mb-3" 
-             />
-            <h3 className="text-lg font-semibold mb-2">{city.name }</h3>
-            <p className="text-gray-600">{city.shortInfo}</p>
-            {selectedCity === city.name && (
-              <p className="text-blue-700 mt-2">{city.fullInfo}</p>
-            )}
+    <div className="min-h-screen bg-gray-50 py-12 px-4">
+      {/* عنوان الصفحة */}
+      <div className="text-center mb-12">
+        <h1 className="text-4xl font-bold text-gray-900 mb-6">مدن فلسطين</h1>
+        <p className="text-lg text-gray-600 mb-8">
+          تعرف على مدن فلسطين وتراثها العريق
+        </p>
 
-          </div>
-        ))}
+        {/* شريط البحث */}
+        <div className="max-w-md mx-auto mb-12">
+          <input
+            type="text"
+            placeholder="ابحث عن مدينة..."
+            value={searchTerm}
+            onChange={(e) => {
+              setSearchTerm(e.target.value);
+              setVisibleCount(12);
+            }}
+            className="w-full px-6 py-3 text-lg rounded-full border-2 border-gray-300 shadow-md focus:outline-none focus:border-green-600 focus:ring-4 focus:ring-green-200 transition-all"
+          />
+        </div>
       </div>
-      {visibleCount < filteredCities.length && (
-        <div className="flex justify-center mt-5">
+
+      {/* البطاقات الصغيرة جدًا المربعة المتناسقة */}
+      <div className="flex flex-wrap justify-center gap-6">
+        {displayedCities.length > 0 ? (
+          displayedCities.map((city, index) => (
+            <div
+              key={index}
+              className="bg-white rounded-lg shadow hover:shadow-md transition-shadow duration-200 overflow-hidden w-40 h-40"
+            >
+              {/* الصورة تشغل معظم البطاقة */}
+              <div className="h-32 bg-gray-200">
+                <img
+                  src={city.image}
+                  alt={city.name}
+                  className="w-full h-full object-cover object-center"
+                />
+              </div>
+
+              {/* الاسم تحت */}
+              <div className="p-2 text-center">
+                <h2 className="text-sm font-bold text-gray-900">
+                  {city.name}
+                </h2>
+              </div>
+            </div>
+          ))
+        ) : (
+          <p className="text-xl text-gray-500 mt-20">
+            لا توجد مدن تطابق البحث
+          </p>
+        )}
+      </div>
+
+      {/* زر عرض المزيد */}
+      {hasMore && (
+        <div className="text-center mt-16">
           <button
-            onClick={() => setVisibleCount(visibleCount + 6)}
-            className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition"
+            onClick={loadMore}
+            className="px-10 py-4 bg-green-700 text-white text-lg font-bold rounded-full shadow-lg hover:bg-green-800 transition-all duration-300"
           >
             عرض المزيد
           </button>
@@ -112,6 +119,5 @@ function Cities() {
     </div>
   );
 }
-
 
 export default Cities;

@@ -1,6 +1,6 @@
-import ContactForm from "../components/ContactForm";
-import ContactInfo from "../components/ContactInfo";
-import StarRating from "../components/StarRating";
+import ContactForm from "../components/contactComponent/ContactForm.jsx";
+import ContactInfo from "../components/contactComponent/ContactInfo.jsx";
+import StarRating from "../components/contactComponent/starRating.jsx";
 import Footer from "../components/Footer";
 
 

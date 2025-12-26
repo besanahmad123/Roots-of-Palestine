@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Footer from "../components/Footer";
-import HeritageCard from "../components/HeritageCard";
-import HeritageSwitch from "../components/HeritageSwitch";
+import HeritageCard from "../components/HeritageComponent/HeritageCard.jsx";
+import HeritageSwitch from "../components/HeritageComponent/HeritageSwitch.jsx";
 
 
 import Thobe1 from "../assets/images/thobe1.jpg";
