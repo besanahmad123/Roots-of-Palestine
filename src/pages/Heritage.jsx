@@ -8,6 +8,7 @@ import Thobe1 from "../assets/images/thobe1.jpg";
 import Thobe2 from "../assets/images/thobe2.jpg";
 import Thobe3 from "../assets/images/thobe3.png";
 
+
 import Pottery1 from "../assets/images/pottery1.jpg";
 import Pottery2 from "../assets/images/pottery2.jpg";
 import Pottery3 from "../assets/images/pottery3.jpg";
@@ -15,6 +16,7 @@ import Pottery3 from "../assets/images/pottery3.jpg";
 import Architecture1 from "../assets/images/architecture1.jpg";
 import Architecture2 from "../assets/images/architecture2.jpg";
 import Architecture3 from "../assets/images/architecture3.gif";
+
 
 import Dabka1 from "../assets/images/dabka1.jpg";
 import Dabka2 from "../assets/images/dabka2.jpg";
@@ -24,13 +26,21 @@ import Songs1 from "../assets/images/songs1.jpg";
 import Songs2 from "../assets/images/songs2.jpg";
 
 
+import MusakhanImg from "../assets/images/MusakhanImg.jpg";
+import MaqlubaImg from "../assets/images/MaqlubaImg.jpg";
+import KaakImg from "../assets/images/KaakImg.jpg";
 
 
-
+import PlowImg from "../assets/images/PlowImg.jpg";
+import MillImg from "../assets/images/MillImg.jpg";
+import SickleImg from "../assets/images/SickleImg .jpg";
 
 function Heritage() {
   const [type, setType] = useState("material");
 
+  
+
+  //التراث المادي 
   const materialHeritage = [
     {
       name: "الثوب الفلسطيني",
@@ -47,8 +57,18 @@ function Heritage() {
       info: "بيوت حجرية وأسواق تاريخية تعكس التراث العمراني",
       images: [Architecture1, Architecture2, Architecture3],
     },
+    {
+      name: "الأدوات الزراعية", 
+      info: "أدوات تقليدية مثل المحراث والطاحونة والمنجل كانت تستخدم في الزراعة الفلسطينية",
+      images: [PlowImg, MillImg, SickleImg],
+    },
   ];
 
+
+
+
+
+  // التراث غير المادي
   const immaterialHeritage = [
     {
       name: "الدبكة",
@@ -58,7 +78,7 @@ function Heritage() {
     {
       name: "الأغاني الشعبية",
       info: "أغاني تراثية تُغنى في المناسبات والأفراح",
-      images: [Songs1, Songs2], 
+      images: [Songs1, Songs2],
     },
     {
       name: "الأمثال الشعبية",
@@ -69,8 +89,18 @@ function Heritage() {
         "العين لا تعلو على الحاجب",
       ],
     },
+    {
+      name: "الأكلات الشعبية", 
+      info: "أطباق تقليدية مثل المسخن والمقلوبة والكعك بالسمسم تعكس الهوية الفلسطينية",
+      images: [MusakhanImg, MaqlubaImg, KaakImg],
+    },
   ];
 
+
+
+
+
+  
   const heritageItems =
     type === "material" ? materialHeritage : immaterialHeritage;
 
@@ -81,11 +111,9 @@ function Heritage() {
       </h1>
 
       {/* أزرار التبديل */}
-      
       <HeritageSwitch type={type} setType={setType} />
 
       {/* بطاقات التراث */}
-
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
         {heritageItems.map((item, index) => (
           <HeritageCard
@@ -98,7 +126,6 @@ function Heritage() {
         ))}
       </div>
 
-      
       <Footer />
     </div>
   );

@@ -1,5 +1,6 @@
 import { useState } from "react";
 
+
 function ContactForm() {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
 
@@ -7,11 +8,31 @@ function ContactForm() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   }
 
-  function handleSubmit(e) {
+
+
+
+  async function handleSubmit(e) {
     e.preventDefault();
-    alert("تم إرسال رسالتك بنجاح");
-    setFormData({ name: "", email: "", message: "" });
+    try {
+      const response = await fetch("http://localhost:4000/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json(); 
+      if (data.success) {
+        alert("APIتم إرسال رسالتك بنجاح ووصلت للـ ");
+        setFormData({ name: "", email: "", message: "" });
+      } else {
+        alert(" صار خطأ، جربي مرة ثانية");
+      }
+    } catch (error) {
+      alert(" مشكلة بالاتصال بالسيرفر");
+    }
   }
+
+  
 
   return (
     <form
