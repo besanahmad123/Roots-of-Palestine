@@ -5,11 +5,13 @@
   "type": "module",
 
   "homepage": "https://besanahmad123.github.io/Roots-of-Palestine",
-   "scripts": {
+  "scripts": {
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.18",
