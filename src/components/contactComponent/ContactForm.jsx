@@ -22,7 +22,7 @@ function ContactForm() {
 
       const data = await response.json(); 
       if (data.success) {
-        alert("APIتم إرسال رسالتك بنجاح ووصلت للـ ");
+        alert("API تم إرسال رسالتك بنجاح ووصلت للـ ");
         setFormData({ name: "", email: "", message: "" });
       } else {
         alert(" صار خطأ، جربي مرة ثانية");
